@@ -43,7 +43,7 @@ jobs:
 
       # 构建 Docusaurus 文档站
       - name: Install Docusaurus dependencies
-        run: npm ci
+        run: npm install
         working-directory: ./docs
 
       - name: Build Docusaurus
