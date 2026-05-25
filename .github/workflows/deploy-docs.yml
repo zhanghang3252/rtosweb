@@ -1,0 +1,82 @@
+# ================================================================
+# GitHub Actions — 部署 Docusaurus 文档站到 GitHub Pages
+# 
+# 触发条件：推送到 main 分支的 docs/ 目录变更
+# 部署路径：GitHub Pages /docs/ 子路径
+# ================================================================
+
+name: Deploy Docusaurus Docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/deploy-docs.yml'
+  workflow_dispatch:  # 支持手动触发
+
+# 设置 GITHUB_TOKEN 权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只允许一个部署任务
+concurrency:
+  group: "pages-docs"
+  cancel-in-progress: true
+
+jobs:
+  # ====== 构建阶段 ======
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        # 在 docs/ 子目录中执行命令
+        working-directory: ./docs
+    steps:
+      # 检出代码
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 安装 Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './docs/package-lock.json'
+
+      # 安装依赖
+      - name: Install dependencies
+        run: npm ci
+
+      # 构建 Docusaurus 站点
+      - name: Build Docusaurus
+        run: npm run build
+        env:
+          # 如果使用 Algolia 搜索，设置环境变量
+          # ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          # ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+
+      # 配置 GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # 上传构建产物
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs/build'
+
+  # ====== 部署阶段 ======
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

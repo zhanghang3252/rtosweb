@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+ * MyRTOS 官网 — 下载页
+ * 提供各版本固件、工具链、SDK 下载
+-->
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyRTOS 下载 — 获取最新版本的内核固件、SDK 和开发工具">
+    <title>下载 — MyRTOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="navbar-brand">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">MyRTOS</span>
+                <span class="logo-tag">v1.0.0</span>
+            </a>
+            <nav class="navbar-nav" id="navbarNav">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="features.html" class="nav-link">特性</a>
+                <a href="getting-started.html" class="nav-link">快速开始</a>
+                <a href="download.html" class="nav-link active">下载</a>
+                <a href="community.html" class="nav-link">社区</a>
+                <a href="./docs/" class="nav-link" target="_blank">文档 ↗</a>
+            </nav>
+            <div class="navbar-actions">
+                <a href="https://github.com/zhanghang3252/rtosweb" class="btn-icon" target="_blank" title="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                </a>
+                <button class="btn-icon theme-toggle" id="themeToggle" title="切换深色/浅色模式">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="navbar-toggle" id="navbarToggle" aria-label="菜单">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面 Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">下载中心</h1>
+            <p class="page-hero-desc">获取最新版本的 MyRTOS 内核、SDK 和开发工具。</p>
+        </div>
+    </section>
+
+    <!-- 内容区 -->
+    <section class="content-section">
+        <div class="container">
+            <!-- 最新版本 -->
+            <h2>📦 最新稳定版 — v1.0.0</h2>
+            <p>发布日期：2026-05-01 &nbsp; | &nbsp; <a href="https://github.com/zhanghang3252/rtosweb/releases/tag/v1.0.0" target="_blank">查看 Release Notes →</a></p>
+
+            <div class="download-cards">
+                <!-- 源码包 -->
+                <div class="download-card">
+                    <h3>📄 源码包</h3>
+                    <div class="version">v1.0.0-stable</div>
+                    <div class="size">~2.5 MB (tar.gz) / ~3.1 MB (zip)</div>
+                    <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px;">
+                        完整内核源码 + BSP + 示例 + 文档
+                    </p>
+                    <a href="https://github.com/zhanghang3252/rtosweb/archive/refs/tags/v1.0.0.tar.gz" class="btn btn-primary" target="_blank">
+                        ⬇ 下载 tar.gz
+                    </a>
+                    <a href="https://github.com/zhanghang3252/rtosweb/archive/refs/tags/v1.0.0.zip" class="btn btn-outline" style="margin-top:8px;" target="_blank">
+                        ⬇ 下载 zip
+                    </a>
+                </div>
+
+                <!-- SDK -->
+                <div class="download-card">
+                    <h3>🧰 SDK 包</h3>
+                    <div class="version">v1.0.0-stable</div>
+                    <div class="size">~15 MB</div>
+                    <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px;">
+                        预编译库 + 工具链 + 示例工程（开箱即用）
+                    </p>
+                    <a href="https://github.com/zhanghang3252/rtosweb/releases/download/v1.0.0/rtosweb-sdk-v1.0.0-linux-x64.tar.gz" class="btn btn-primary" target="_blank">
+                        ⬇ 下载 SDK (Linux x64)
+                    </a>
+                </div>
+
+                <!-- 工具链 -->
+                <div class="download-card">
+                    <h3>🔧 工具链</h3>
+                    <div class="version">Env v2.0 / Menuconfig v1.5</div>
+                    <div class="size">~8 MB</div>
+                    <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px;">
+                        命令行环境管理工具 + 图形化配置工具
+                    </p>
+                    <a href="https://github.com/zhanghang3252/rtosweb-env/releases" class="btn btn-primary" target="_blank">
+                        ⬇ 下载 Env 工具
+                    </a>
+                </div>
+            </div>
+
+            <!-- 历史版本 -->
+            <h2>📜 历史版本</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>版本</th>
+                        <th>发布日期</th>
+                        <th>状态</th>
+                        <th>下载</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>v1.0.0</strong></td>
+                        <td>2026-05-01</td>
+                        <td><span style="color:#22c55e;">✅ 最新稳定版</span></td>
+                        <td><a href="https://github.com/zhanghang3252/rtosweb/releases/tag/v1.0.0" target="_blank">下载</a></td>
+                    </tr>
+                    <tr>
+                        <td>v0.9.0-rc2</td>
+                        <td>2026-03-15</td>
+                        <td><span style="color:#eab308;">🔶 候选版</span></td>
+                        <td><a href="https://github.com/zhanghang3252/rtosweb/releases/tag/v0.9.0-rc2" target="_blank">下载</a></td>
+                    </tr>
+                    <tr>
+                        <td>v0.9.0-rc1</td>
+                        <td>2026-01-20</td>
+                        <td><span style="color:#94a3b8;">⚪ 过期</span></td>
+                        <td><a href="https://github.com/zhanghang3252/rtosweb/releases/tag/v0.9.0-rc1" target="_blank">下载</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note note-warning">
+                <strong>⚠️ 注意：</strong>历史版本仅供参考，生产环境请使用最新稳定版。开发版（dev 分支）可能包含未测试的功能。
+            </div>
+
+            <!-- Git 克隆 -->
+            <h2>🔀 通过 Git 获取</h2>
+            <p>推荐使用 Git 克隆仓库，方便后续更新和版本管理：</p>
+            <pre><code># 克隆最新稳定版
+git clone -b v1.0.0 https://github.com/zhanghang3252/rtosweb.git
+
+# 克隆开发版（最新特性，可能不稳定）
+git clone -b develop https://github.com/zhanghang3252/rtosweb.git
+
+# 后续更新
+cd myrtos
+git pull origin main</code></pre>
+
+            <!-- 校验信息 -->
+            <h2>🔐 校验信息</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>文件</th>
+                        <th>SHA256</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>myrtos-v1.0.0.tar.gz</td>
+                        <td><code>a1b2c3d4e5f6...（实际发布时替换）</code></td>
+                    </tr>
+                    <tr>
+                        <td>myrtos-v1.0.0.zip</td>
+                        <td><code>f6e5d4c3b2a1...（实际发布时替换）</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">MyRTOS</span>
+                    </a>
+                    <p class="footer-tagline">开源实时操作系统<br>为嵌入式而生</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品</h4>
+                    <a href="features.html">特性</a>
+                    <a href="download.html">下载</a>
+                    <a href="getting-started.html">快速开始</a>
+                    <a href="./docs/">文档</a>
+                </div>
+                <div class="footer-links">
+                    <h4>社区</h4>
+                    <a href="community.html">社区首页</a>
+                    <a href="https://github.com/zhanghang3252/rtosweb" target="_blank">GitHub</a>
+                    <a href="./forum/" target="_blank">论坛</a>
+                    <a href="#">贡献指南</a>
+                </div>
+                <div class="footer-links">
+                    <h4>资源</h4>
+                    <a href="#">博客</a>
+                    <a href="#">示例代码</a>
+                    <a href="#">视频教程</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2026 MyRTOS. Released under the Apache License 2.0.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">隐私政策</a>
+                    <a href="#">使用条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

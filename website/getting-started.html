@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--
+ * MyRTOS 官网 — 快速开始页
+ * 从零到一的完整上手指南
+-->
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyRTOS 快速开始 — 5 分钟将 MyRTOS 运行在你的开发板上">
+    <title>快速开始 — MyRTOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="navbar-brand">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">MyRTOS</span>
+                <span class="logo-tag">v1.0.0</span>
+            </a>
+            <nav class="navbar-nav" id="navbarNav">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="features.html" class="nav-link">特性</a>
+                <a href="getting-started.html" class="nav-link active">快速开始</a>
+                <a href="download.html" class="nav-link">下载</a>
+                <a href="community.html" class="nav-link">社区</a>
+                <a href="./docs/" class="nav-link" target="_blank">文档 ↗</a>
+            </nav>
+            <div class="navbar-actions">
+                <a href="https://github.com/zhanghang3252/rtosweb" class="btn-icon" target="_blank" title="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                </a>
+                <button class="btn-icon theme-toggle" id="themeToggle" title="切换深色/浅色模式">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="navbar-toggle" id="navbarToggle" aria-label="菜单">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面 Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">快速开始</h1>
+            <p class="page-hero-desc">从零开始，5 分钟将 MyRTOS 运行在你的开发板上。</p>
+        </div>
+    </section>
+
+    <!-- 内容区 -->
+    <section class="content-section">
+        <div class="container">
+            <!-- 环境准备 -->
+            <h2>📋 第一步：环境准备</h2>
+            <p>MyRTOS 的构建系统基于 SCons，同时需要 ARM 交叉编译工具链。以下是在 Alibaba Cloud Linux 3 上的完整安装步骤：</p>
+
+            <h3>1.1 安装基础依赖</h3>
+            <pre><code># 更新系统包
+sudo dnf update -y
+
+# 安装基础开发工具
+sudo dnf groupinstall -y "Development Tools"
+sudo dnf install -y git python3 python3-pip scons
+
+# 验证安装
+python3 --version    # 需要 3.8+
+scons --version      # 需要 4.0+</code></pre>
+
+            <h3>1.2 安装 ARM 工具链</h3>
+            <pre><code># 方式一：从 ARM 官方下载（推荐）
+wget https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz
+sudo tar -xf arm-gnu-toolchain-*.tar.xz -C /opt/
+echo 'export PATH=/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+
+# 方式二：使用 dnf 安装（版本可能较旧）
+sudo dnf install -y arm-none-eabi-gcc arm-none-eabi-newlib
+
+# 验证
+arm-none-eabi-gcc --version</code></pre>
+
+            <h3>1.3 安装烧录工具</h3>
+            <pre><code># OpenOCD（通用调试器）
+sudo dnf install -y openocd
+
+# 或者使用 J-Link（Segger 官方下载）
+# https://www.segger.com/downloads/jlink/</code></pre>
+
+            <div class="note note-info">
+                <strong>💡 提示：</strong>如果你使用 ESP32 系列，需要额外安装 ESP-IDF 工具链。参考 <a href="#">ESP32 移植指南</a>。
+            </div>
+
+            <!-- 获取源码 -->
+            <h2>📥 第二步：获取源码</h2>
+            <pre><code># 克隆 MyRTOS 源码仓库
+git clone https://github.com/zhanghang3252/rtosweb.git
+cd myrtos
+
+# 查看目录结构
+ls -la
+# ├── kernel/         # 内核源码
+# ├── arch/           # 架构相关代码
+# ├── components/     # 组件（网络、文件系统等）
+# ├── drivers/        # 设备驱动
+# ├── boards/         # BSP 板级支持包
+# ├── tools/          # 构建工具
+# ├── examples/       # 示例代码
+# ├── Kconfig         # 配置文件
+# ├── SConstruct      # 顶层构建脚本
+# └── README.md</code></pre>
+
+            <!-- 配置工程 -->
+            <h2>⚙️ 第三步：配置工程</h2>
+            <p>MyRTOS 使用 Kconfig 配置系统，支持图形化菜单配置和命令行配置两种方式。</p>
+
+            <h3>3.1 图形化配置（推荐）</h3>
+            <pre><code># 启动图形化配置界面
+scons --menuconfig
+
+# 界面操作说明：
+# ↑↓    - 上下移动
+# Enter - 进入子菜单 / 切换选项
+# Space - 选中/取消选中
+# Esc   - 返回上级菜单
+# ?     - 查看帮助</code></pre>
+
+            <h3>3.2 关键配置项</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>配置项</th>
+                        <th>说明</th>
+                        <th>默认值</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>RT_BOARD</code></td>
+                        <td>目标开发板型号</td>
+                        <td><code>stm32f407-atk</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>RT_ARCH</code></td>
+                        <td>CPU 架构</td>
+                        <td><code>arm</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>RT_TOOLCHAIN</code></td>
+                        <td>编译工具链</td>
+                        <td><code>gcc</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>configMAX_PRIORITIES</code></td>
+                        <td>最大优先级数</td>
+                        <td><code>32</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>configTOTAL_HEAP_SIZE</code></td>
+                        <td>堆内存大小（字节）</td>
+                        <td><code>10240</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 构建与烧录 -->
+            <h2>🔨 第四步：构建与烧录</h2>
+            <h3>4.1 编译固件</h3>
+            <pre><code># 编译（自动检测 CPU 核心数并行编译）
+scons
+
+# 清除构建产物
+scons --clean
+
+# 指定编译线程数
+scons -j8</code></pre>
+
+            <h3>4.2 烧录到开发板</h3>
+            <pre><code># 方式一：使用 MyRTOS 内置烧录命令
+scons --flash
+
+# 方式二：使用 OpenOCD 手动烧录
+openocd -f interface/stlink.cfg \
+        -f target/stm32f4x.cfg \
+        -c "program build/rtosweb.elf verify reset exit"
+
+# 方式三：使用 J-Link 烧录
+JLinkExe -device STM32F407VG -if SWD -speed 4000
+# 在 J-Link 终端中执行：
+# loadfile build/rtosweb.bin 0x08000000
+# r
+# g
+# q</code></pre>
+
+            <!-- 运行验证 -->
+            <h2>✅ 第五步：运行验证</h2>
+            <pre><code># 连接串口终端（波特率 115200）
+minicom -D /dev/ttyUSB0 -b 115200
+
+# 或使用 screen
+screen /dev/ttyUSB0 115200
+
+# 预期输出：
+# \ | /
+# - MyRTOS -     Operating System
+#  / | \     1.0.0 build May 25 2026
+# 2006 - 2026 Copyright by MyRTOS Team
+# msh >_</code></pre>
+
+            <div class="note note-tip">
+                <strong>🎉 恭喜！</strong>如果看到以上输出，说明 MyRTOS 已成功运行在你的开发板上。接下来可以尝试 <code>examples/</code> 目录下的示例项目。
+            </div>
+
+            <!-- 下一步 -->
+            <h2>📚 下一步</h2>
+            <ul>
+                <li>阅读 <a href="./docs/">完整文档</a> 了解 API 详情</li>
+                <li>浏览 <code>examples/</code> 目录学习示例代码</li>
+                <li>加入 <a href="community.html">社区</a> 与其他开发者交流</li>
+                <li>查看 <a href="#">移植指南</a> 适配你的自定义硬件</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">MyRTOS</span>
+                    </a>
+                    <p class="footer-tagline">开源实时操作系统<br>为嵌入式而生</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品</h4>
+                    <a href="features.html">特性</a>
+                    <a href="download.html">下载</a>
+                    <a href="getting-started.html">快速开始</a>
+                    <a href="./docs/">文档</a>
+                </div>
+                <div class="footer-links">
+                    <h4>社区</h4>
+                    <a href="community.html">社区首页</a>
+                    <a href="https://github.com/zhanghang3252/rtosweb" target="_blank">GitHub</a>
+                    <a href="./forum/" target="_blank">论坛</a>
+                    <a href="#">贡献指南</a>
+                </div>
+                <div class="footer-links">
+                    <h4>资源</h4>
+                    <a href="#">博客</a>
+                    <a href="#">示例代码</a>
+                    <a href="#">视频教程</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2026 MyRTOS. Released under the Apache License 2.0.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">隐私政策</a>
+                    <a href="#">使用条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--
+ * MyRTOS 官网 — 社区页
+ * 社区入口、贡献指南、行为准则
+-->
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyRTOS 社区 — 加入全球嵌入式开发者社区，参与开源贡献">
+    <title>社区 — MyRTOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="navbar-brand">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">MyRTOS</span>
+                <span class="logo-tag">v1.0.0</span>
+            </a>
+            <nav class="navbar-nav" id="navbarNav">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="features.html" class="nav-link">特性</a>
+                <a href="getting-started.html" class="nav-link">快速开始</a>
+                <a href="download.html" class="nav-link">下载</a>
+                <a href="community.html" class="nav-link active">社区</a>
+                <a href="./docs/" class="nav-link" target="_blank">文档 ↗</a>
+            </nav>
+            <div class="navbar-actions">
+                <a href="https://github.com/zhanghang3252/rtosweb" class="btn-icon" target="_blank" title="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                </a>
+                <button class="btn-icon theme-toggle" id="themeToggle" title="切换深色/浅色模式">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="navbar-toggle" id="navbarToggle" aria-label="菜单">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面 Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">加入社区</h1>
+            <p class="page-hero-desc">与全球嵌入式开发者一起构建、改进、推广 MyRTOS。</p>
+        </div>
+    </section>
+
+    <!-- 内容区 -->
+    <section class="content-section">
+        <div class="container">
+            <!-- 社区入口 -->
+            <h2>🌐 社区平台</h2>
+            <div class="community-grid" style="margin-bottom:64px;">
+                <a href="https://github.com/zhanghang3252/rtosweb" class="community-card" target="_blank">
+                    <div class="community-icon">📦</div>
+                    <h3>GitHub</h3>
+                    <p>源码仓库、Issue 跟踪、Pull Request、Wiki</p>
+                </a>
+                <a href="https://github.com/zhanghang3252/rtosweb/discussions" class="community-card" target="_blank">
+                    <div class="community-icon">💬</div>
+                    <h3>Discussions</h3>
+                    <p>技术讨论、问题解答、功能建议</p>
+                </a>
+                <a href="./forum/" class="community-card">
+                    <div class="community-icon">🏛️</div>
+                    <h3>Discourse 论坛</h3>
+                    <p>深度技术交流、教程分享、案例展示</p>
+                </a>
+                <a href="https://gitter.im/rtosweb/community" class="community-card" target="_blank">
+                    <div class="community-icon">✉️</div>
+                    <h3>Gitter 聊天</h3>
+                    <p>实时沟通、快速提问、日常闲聊</p>
+                </a>
+            </div>
+
+            <!-- 贡献指南 -->
+            <h2>🤝 如何贡献</h2>
+            <p>MyRTOS 欢迎任何形式的贡献！无论是代码、文档、Bug 报告还是功能建议，都对项目至关重要。</p>
+
+            <h3>贡献类型</h3>
+            <ul>
+                <li><strong>🐛 报告 Bug：</strong>在 GitHub Issues 中提交 Bug 报告，附上复现步骤和环境信息</li>
+                <li><strong>💡 功能建议：</strong>在 Discussions 或 Issues 中提出新功能建议</li>
+                <li><strong>📝 文档改进：</strong>修正文档错误、补充示例代码、翻译文档</li>
+                <li><strong>💻 代码贡献：</strong>修复 Bug、实现新功能、优化性能</li>
+                <li><strong>🔌 BSP 适配：</strong>为新的开发板添加板级支持包</li>
+                <li><strong>📦 软件包：</strong>贡献可复用的中间件/驱动软件包</li>
+            </ul>
+
+            <h3>代码贡献流程</h3>
+            <pre><code># 1. Fork 仓库到你的 GitHub 账号
+# 在 GitHub 页面点击右上角 "Fork" 按钮
+
+# 2. 克隆你的 Fork
+git clone https://github.com/zhanghang3252/rtosweb.git
+cd myrtos
+
+# 3. 创建功能分支
+git checkout -b feature/your-feature-name
+
+# 4. 编写代码 & 测试
+# ... 编码 ...
+scons  # 确保编译通过
+
+# 5. 提交代码
+git add .
+git commit -m "feat(module): 描述你的改动"
+# Commit 规范：feat/fix/docs/style/refactor/test/chore
+
+# 6. 推送到你的 Fork
+git push origin feature/your-feature-name
+
+# 7. 创建 Pull Request
+# 在 GitHub 页面点击 "New Pull Request"
+
+# 8. 等待 Code Review
+# 维护者会审核你的代码，可能要求修改
+
+# 9. 合并
+# 审核通过后，代码将被合并到主分支</code></pre>
+
+            <h3>Commit 规范</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>前缀</th>
+                        <th>说明</th>
+                        <th>示例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>feat</code></td>
+                        <td>新功能</td>
+                        <td><code>feat(kernel): add event flag group</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>fix</code></td>
+                        <td>Bug 修复</td>
+                        <td><code>fix(uart): fix rx buffer overflow</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>docs</code></td>
+                        <td>文档</td>
+                        <td><code>docs(api): update semaphore API reference</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>style</code></td>
+                        <td>代码格式</td>
+                        <td><code>style(kernel): fix code style issues</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>refactor</code></td>
+                        <td>重构</td>
+                        <td><code>refactor(scheduler): optimize priority queue</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>test</code></td>
+                        <td>测试</td>
+                        <td><code>test(mutex): add priority inheritance test</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>chore</code></td>
+                        <td>构建/工具</td>
+                        <td><code>chore(ci): update GitHub Actions workflow</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 行为准则 -->
+            <h2>📜 社区行为准则</h2>
+            <p>我们致力于为每个人提供一个友好、安全、包容的社区环境。请遵守以下准则：</p>
+            <ul>
+                <li>尊重每一位参与者，不论其背景、经验水平或观点</li>
+                <li>使用友善和包容的语言</li>
+                <li>尊重不同的意见和经验</li>
+                <li>优雅地接受建设性的批评</li>
+                <li>关注对社区最有利的事情</li>
+                <li>对他社区成员表示同理心</li>
+            </ul>
+            <p>不允许的行为：骚扰、歧视、人身攻击、发布他人私人信息、任何非法行为。</p>
+
+            <!-- 加入我们 -->
+            <h2>🚀 立即加入</h2>
+            <p>选择你最喜欢的方式参与社区：</p>
+            <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:24px;">
+                <a href="https://github.com/zhanghang3252/rtosweb" class="btn btn-primary" target="_blank">
+                    ⭐ Star on GitHub
+                </a>
+                <a href="https://github.com/zhanghang3252/rtosweb/fork" class="btn btn-outline" target="_blank">
+                    🍴 Fork 项目
+                </a>
+                <a href="https://github.com/zhanghang3252/rtosweb/discussions" class="btn btn-outline" target="_blank">
+                    💬 加入讨论
+                </a>
+                <a href="./forum/" class="btn btn-outline">
+                    🏛️ 访问论坛
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">MyRTOS</span>
+                    </a>
+                    <p class="footer-tagline">开源实时操作系统<br>为嵌入式而生</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品</h4>
+                    <a href="features.html">特性</a>
+                    <a href="download.html">下载</a>
+                    <a href="getting-started.html">快速开始</a>
+                    <a href="./docs/">文档</a>
+                </div>
+                <div class="footer-links">
+                    <h4>社区</h4>
+                    <a href="community.html">社区首页</a>
+                    <a href="https://github.com/zhanghang3252/rtosweb" target="_blank">GitHub</a>
+                    <a href="./forum/" target="_blank">论坛</a>
+                    <a href="#">贡献指南</a>
+                </div>
+                <div class="footer-links">
+                    <h4>资源</h4>
+                    <a href="#">博客</a>
+                    <a href="#">示例代码</a>
+                    <a href="#">视频教程</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2026 MyRTOS. Released under the Apache License 2.0.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">隐私政策</a>
+                    <a href="#">使用条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

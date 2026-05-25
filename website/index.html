@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--
+ * RTOS 官方门户网站 - 首页
+ * 风格对标 RT-Thread / Zephyr / ESP-IDF
+ * 科技深蓝主色调，支持深色/浅色双模式
+ * 适配 GitHub Pages 静态托管
+-->
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="开源实时操作系统 - 高性能、轻量级、面向嵌入式开发的 RTOS">
+    <meta name="keywords" content="RTOS, 实时操作系统, 嵌入式开发, 开源, FreeRTOS, RT-Thread, Zephyr">
+    <title>MyRTOS - 开源实时操作系统</title>
+    <!-- 字体：等宽 + 无衬线 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 主样式表 -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+    <!-- ========== 顶部导航栏 ========== -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <!-- Logo -->
+            <a href="index.html" class="navbar-brand">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">MyRTOS</span>
+                <span class="logo-tag">v1.0.0</span>
+            </a>
+            <!-- 导航链接 -->
+            <nav class="navbar-nav" id="navbarNav">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="features.html" class="nav-link">特性</a>
+                <a href="getting-started.html" class="nav-link">快速开始</a>
+                <a href="download.html" class="nav-link">下载</a>
+                <a href="community.html" class="nav-link">社区</a>
+                <!-- 文档站外链 -->
+                <a href="./docs/" class="nav-link" target="_blank">文档 ↗</a>
+            </nav>
+            <!-- 右侧操作区 -->
+            <div class="navbar-actions">
+                <!-- GitHub 链接 -->
+                <a href="https://github.com/zhanghang3252/rtosweb" class="btn-icon" target="_blank" title="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                </a>
+                <!-- 主题切换按钮 -->
+                <button class="btn-icon theme-toggle" id="themeToggle" title="切换深色/浅色模式">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <!-- 移动端菜单按钮 -->
+                <button class="navbar-toggle" id="navbarToggle" aria-label="菜单">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== Hero 主视觉区 ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">🚀 开源 · 实时 · 轻量 · 确定性</div>
+            <h1 class="hero-title">
+                面向未来的<br>
+                <span class="text-gradient">嵌入式实时操作系统</span>
+            </h1>
+            <p class="hero-desc">
+                MyRTOS 是一款专为资源受限的嵌入式系统设计的开源实时操作系统。<br>
+                极小内核、硬实时调度、确定性响应，从 8-bit MCU 到 64-bit SoC 全覆盖。
+            </p>
+            <div class="hero-actions">
+                <a href="getting-started.html" class="btn btn-primary btn-lg">
+                    <span>快速开始</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://github.com/zhanghang3252/rtosweb" class="btn btn-outline btn-lg" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+            <!-- 终端模拟器 -->
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">bash — myrtos</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command" id="typewriterText"></span>
+                        <span class="cursor">▋</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 核心数据统计 ========== -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">< 2KB</div>
+                    <div class="stat-label">最小内核占用</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">< 1μs</div>
+                    <div class="stat-label">任务切换时间</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">256</div>
+                    <div class="stat-label">优先级等级</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">20+</div>
+                    <div class="stat-label">支持的 MCU 平台</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 核心特性展示 ========== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">核心特性</h2>
+                <p class="section-desc">为嵌入式场景深度优化的每一个细节</p>
+            </div>
+            <div class="features-grid">
+                <!-- 特性卡片 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">硬实时调度</h3>
+                    <p class="feature-desc">基于优先级的抢占式调度，支持时间片轮转。确定性响应，满足最严苛的实时性要求。</p>
+                    <code class="feature-code">configMAX_PRIORITIES = 256</code>
+                </div>
+                <!-- 特性卡片 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">极小内存占用</h3>
+                    <p class="feature-desc">内核代码 < 2KB，RAM 占用 < 1KB。支持静态内存分配，零碎片，适配最小 MCU。</p>
+                    <code class="feature-code">configTOTAL_HEAP_SIZE = 1024</code>
+                </div>
+                <!-- 特性卡片 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">模块化架构</h3>
+                    <p class="feature-desc">内核、驱动、协议栈完全解耦。按需裁剪，只编译你需要的组件。</p>
+                    <code class="feature-code">myrtos-config --enable=network</code>
+                </div>
+                <!-- 特性卡片 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3 class="feature-title">丰富的驱动框架</h3>
+                    <p class="feature-desc">统一的设备驱动模型，支持 UART/SPI/I2C/CAN/Ethernet 等主流外设接口。</p>
+                    <code class="feature-code">device_register(&uart_driver)</code>
+                </div>
+                <!-- 特性卡片 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">网络协议栈</h3>
+                    <p class="feature-desc">内置 lwIP/TCP-IP 协议栈，支持 MQTT/HTTP/CoAP，开箱即用的 IoT 连接方案。</p>
+                    <code class="feature-code">mqtt_client_connect(broker)</code>
+                </div>
+                <!-- 特性卡片 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">安全与可靠性</h3>
+                    <p class="feature-desc">MPU 内存保护、看门狗监控、栈溢出检测。通过 IEC 61508 SIL 3 功能安全认证。</p>
+                    <code class="feature-code">configENABLE_MPU = 1</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 架构概览 ========== -->
+    <section class="architecture" id="arch">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">系统架构</h2>
+                <p class="section-desc">分层设计，清晰解耦，灵活扩展</p>
+            </div>
+            <div class="arch-diagram">
+                <!-- 应用层 -->
+                <div class="arch-layer arch-app">
+                    <div class="arch-layer-label">应用层</div>
+                    <div class="arch-layer-items">
+                        <span class="arch-item">用户应用</span>
+                        <span class="arch-item">Shell CLI</span>
+                        <span class="arch-item">OTA 升级</span>
+                        <span class="arch-item">日志系统</span>
+                    </div>
+                </div>
+                <!-- 组件层 -->
+                <div class="arch-layer arch-component">
+                    <div class="arch-layer-label">组件层</div>
+                    <div class="arch-layer-items">
+                        <span class="arch-item">文件系统</span>
+                        <span class="arch-item">网络协议栈</span>
+                        <span class="arch-item">GUI 框架</span>
+                        <span class="arch-item">数据库</span>
+                    </div>
+                </div>
+                <!-- 内核层 -->
+                <div class="arch-layer arch-kernel">
+                    <div class="arch-layer-label">内核层</div>
+                    <div class="arch-layer-items">
+                        <span class="arch-item">任务调度</span>
+                        <span class="arch-item">信号量</span>
+                        <span class="arch-item">消息队列</span>
+                        <span class="arch-item">内存管理</span>
+                        <span class="arch-item">定时器</span>
+                    </div>
+                </div>
+                <!-- 驱动层 -->
+                <div class="arch-layer arch-driver">
+                    <div class="arch-layer-label">驱动层 (BSP)</div>
+                    <div class="arch-layer-items">
+                        <span class="arch-item">UART</span>
+                        <span class="arch-item">SPI</span>
+                        <span class="arch-item">I2C</span>
+                        <span class="arch-item">GPIO</span>
+                        <span class="arch-item">DMA</span>
+                    </div>
+                </div>
+                <!-- 硬件层 -->
+                <div class="arch-layer arch-hardware">
+                    <div class="arch-layer-label">硬件层 (HAL)</div>
+                    <div class="arch-layer-items">
+                        <span class="arch-item">STM32</span>
+                        <span class="arch-item">ESP32</span>
+                        <span class="arch-item">RISC-V</span>
+                        <span class="arch-item">ARM Cortex-M</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 支持平台 ========== -->
+    <section class="platforms" id="platforms">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">支持的硬件平台</h2>
+                <p class="section-desc">覆盖主流嵌入式 MCU 架构</p>
+            </div>
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">🔴</div>
+                    <h3>STM32 系列</h3>
+                    <p>F1/F4/F7/H7 全系列</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🟢</div>
+                    <h3>ESP32 系列</h3>
+                    <p>ESP32 / ESP32-S3 / ESP32-C3</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🟡</div>
+                    <h3>RISC-V</h3>
+                    <p>GD32VF103 / BL602 / CH32V</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🔵</div>
+                    <h3>NXP i.MX RT</h3>
+                    <p>RT1060 / RT1170 系列</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🟣</div>
+                    <h3>Nordic nRF</h3>
+                    <p>nRF52 / nRF53 / nRF91</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">⚪</div>
+                    <h3>更多平台</h3>
+                    <p>持续适配中...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 快速上手代码示例 ========== -->
+    <section class="quickstart" id="quickstart">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">5 分钟快速上手</h2>
+                <p class="section-desc">创建你的第一个 MyRTOS 任务</p>
+            </div>
+            <div class="code-showcase">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-lang">C</span>
+                        <span class="code-filename">main.c</span>
+                        <button class="btn-copy" onclick="copyCode(this)">复制</button>
+                    </div>
+                    <pre class="code-content"><code><span class="c-comment">/**
+ * MyRTOS 最小示例 — 两个任务交替闪烁 LED
+ * 适用于任意开发板，修改 GPIO 即可运行
+ */</span>
+
+<span class="c-preprocessor">#include</span> <span class="c-string">&lt;myrtos.h&gt;</span>
+<span class="c-preprocessor">#include</span> <span class="c-string">&lt;myrtos_device.h&gt;</span>
+
+<span class="c-comment">/* 任务栈大小 */</span>
+<span class="c-preprocessor">#define</span> TASK_STACK_SIZE  <span class="c-number">256</span>
+
+<span class="c-comment">/* 任务句柄 */</span>
+<span class="c-type">static</span> task_handle_t led_task_a;
+<span class="c-type">static</span> task_handle_t led_task_b;
+
+<span class="c-comment">/* LED 闪烁任务 A — 500ms 周期 */</span>
+<span class="c-type">static void</span> <span class="c-func">led_task_a_entry</span>(<span class="c-type">void</span> *param) {
+    device_t *led = device_find(<span class="c-string">"led_green"</span>);
+    <span class="c-keyword">while</span> (<span class="c-number">1</span>) {
+        device_write(led, <span class="c-number">1</span>);   <span class="c-comment">// LED ON</span>
+        task_delay_ms(<span class="c-number">500</span>);
+        device_write(led, <span class="c-number">0</span>);   <span class="c-comment">// LED OFF</span>
+        task_delay_ms(<span class="c-number">500</span>);
+    }
+}
+
+<span class="c-comment">/* LED 闪烁任务 B — 1000ms 周期 */</span>
+<span class="c-type">static void</span> <span class="c-func">led_task_b_entry</span>(<span class="c-type">void</span> *param) {
+    device_t *led = device_find(<span class="c-string">"led_red"</span>);
+    <span class="c-keyword">while</span> (<span class="c-number">1</span>) {
+        device_write(led, <span class="c-number">1</span>);   <span class="c-comment">// LED ON</span>
+        task_delay_ms(<span class="c-number">1000</span>);
+        device_write(led, <span class="c-number">0</span>);   <span class="c-comment">// LED OFF</span>
+        task_delay_ms(<span class="c-number">1000</span>);
+    }
+}
+
+<span class="c-comment">/* 主函数 — 系统入口 */</span>
+<span class="c-type">int</span> <span class="c-func">main</span>(<span class="c-type">void</span>) {
+    <span class="c-comment">/* 硬件初始化 */</span>
+    board_init();
+
+    <span class="c-comment">/* 创建任务 */</span>
+    led_task_a = task_create(
+        <span class="c-string">"led_a"</span>,              <span class="c-comment">// 任务名</span>
+        led_task_a_entry,    <span class="c-comment">// 入口函数</span>
+        <span class="c-number">NULL</span>,                <span class="c-comment">// 参数</span>
+        TASK_STACK_SIZE,     <span class="c-comment">// 栈大小</span>
+        <span class="c-number">3</span>                    <span class="c-comment">// 优先级</span>
+    );
+
+    led_task_b = task_create(
+        <span class="c-string">"led_b"</span>,
+        led_task_b_entry,
+        <span class="c-number">NULL</span>,
+        TASK_STACK_SIZE,
+        <span class="c-number">2</span>                    <span class="c-comment">// 较低优先级</span>
+    );
+
+    <span class="c-comment">/* 启动调度器 — 不会返回 */</span>
+    scheduler_start();
+
+    <span class="c-keyword">return</span> <span class="c-number">0</span>;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 社区与支持 ========== -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">加入社区</h2>
+                <p class="section-desc">与全球嵌入式开发者一起构建 MyRTOS 生态</p>
+            </div>
+            <div class="community-grid">
+                <a href="https://github.com/zhanghang3252/rtosweb" class="community-card" target="_blank">
+                    <div class="community-icon">📦</div>
+                    <h3>GitHub</h3>
+                    <p>源码仓库、Issue 跟踪、Pull Request</p>
+                </a>
+                <a href="https://github.com/zhanghang3252/rtosweb/discussions" class="community-card" target="_blank">
+                    <div class="community-icon">💬</div>
+                    <h3>Discussions</h3>
+                    <p>技术讨论、问题解答、经验分享</p>
+                </a>
+                <a href="./forum/" class="community-card">
+                    <div class="community-icon">🏛️</div>
+                    <h3>论坛</h3>
+                    <p>Discourse 社区论坛，深度技术交流</p>
+                </a>
+                <a href="https://gitter.im/rtosweb/community" class="community-card" target="_blank">
+                    <div class="community-icon">✉️</div>
+                    <h3>即时聊天</h3>
+                    <p>Gitter / Discord 实时沟通</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 底部 CTA ========== -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">准备好开始了吗？</h2>
+            <p class="cta-desc">三步搞定，立即将 MyRTOS 运行在你的开发板上</p>
+            <div class="cta-steps">
+                <div class="cta-step">
+                    <span class="step-num">01</span>
+                    <code>git clone https://github.com/zhanghang3252/rtosweb.git</code>
+                </div>
+                <div class="cta-step">
+                    <span class="step-num">02</span>
+                    <code>cd myrtos && scons --menuconfig</code>
+                </div>
+                <div class="cta-step">
+                    <span class="step-num">03</span>
+                    <code>scons && flash</code>
+                </div>
+            </div>
+            <a href="getting-started.html" class="btn btn-primary btn-lg">查看完整教程 →</a>
+        </div>
+    </section>
+
+    <!-- ========== 页脚 ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">MyRTOS</span>
+                    </a>
+                    <p class="footer-tagline">开源实时操作系统<br>为嵌入式而生</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品</h4>
+                    <a href="features.html">特性</a>
+                    <a href="download.html">下载</a>
+                    <a href="getting-started.html">快速开始</a>
+                    <a href="./docs/">文档</a>
+                </div>
+                <div class="footer-links">
+                    <h4>社区</h4>
+                    <a href="community.html">社区首页</a>
+                    <a href="https://github.com/zhanghang3252/rtosweb" target="_blank">GitHub</a>
+                    <a href="./forum/" target="_blank">论坛</a>
+                    <a href="#">贡献指南</a>
+                </div>
+                <div class="footer-links">
+                    <h4>资源</h4>
+                    <a href="#">博客</a>
+                    <a href="#">示例代码</a>
+                    <a href="#">视频教程</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2026 MyRTOS. Released under the Apache License 2.0.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">隐私政策</a>
+                    <a href="#">使用条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 主脚本 -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

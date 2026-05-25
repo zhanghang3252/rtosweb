@@ -1,0 +1,147 @@
+/**
+ * Docusaurus 自定义样式
+ * 
+ * 与门户网站保持一致的设计风格：
+ * - 科技深蓝主色调
+ * - 深色/浅色双模式
+ * - 等宽代码字体
+ */
+
+/* ====== CSS 变量 ====== */
+:root {
+    --ifm-color-primary: #3b82f6;
+    --ifm-color-primary-dark: #2563eb;
+    --ifm-color-primary-darker: #1d4ed8;
+    --ifm-color-primary-darkest: #1e40af;
+    --ifm-color-primary-light: #60a5fa;
+    --ifm-color-primary-lighter: #93bbfd;
+    --ifm-color-primary-lightest: #bfdbfe;
+    --ifm-code-font-size: 90%;
+    --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* 深色模式 */
+[data-theme='dark'] {
+    --ifm-color-primary: #60a5fa;
+    --ifm-color-primary-dark: #3b82f6;
+    --ifm-color-primary-darker: #2563eb;
+    --ifm-color-primary-darkest: #1d4ed8;
+    --ifm-color-primary-light: #93bbfd;
+    --ifm-color-primary-lighter: #bfdbfe;
+    --ifm-color-primary-lightest: #dbeafe;
+    --ifm-background-color: #0a0f1a;
+    --ifm-navbar-background-color: #0f172a;
+    --ifm-footer-background-color: #0a0f1a;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* ====== 全局 ====== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 导航栏样式 */
+.navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ====== 代码块 ====== */
+code {
+    border-radius: 4px;
+}
+
+pre code {
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+/* ====== 文章内容 ====== */
+.markdown h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.markdown h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.markdown h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.markdown p {
+    line-height: 1.8;
+}
+
+/* ====== 提示框 ====== */
+.admonition {
+    border-radius: 8px;
+    border-left-width: 4px;
+}
+
+/* ====== 侧边栏 ====== */
+.menu__link {
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+    background-color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+    background-color: rgba(96, 165, 250, 0.15);
+}
+
+/* ====== 目录 ====== */
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+    color: var(--ifm-color-primary);
+}
+
+/* ====== 表格 ====== */
+table {
+    font-size: 0.9rem;
+}
+
+table th {
+    background: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] table th {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ====== 页脚 ====== */
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ====== 搜索栏 ====== */
+.DocSearch-Button {
+    border-radius: 8px;
+}
+
+/* ====== 响应式 ====== */
+@media screen and (max-width: 996px) {
+    .markdown h1 {
+        font-size: 1.75rem;
+    }
+}
