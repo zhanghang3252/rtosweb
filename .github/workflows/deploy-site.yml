@@ -1,18 +1,18 @@
 # ================================================================
-# GitHub Actions — 部署 Docusaurus 文档站到 GitHub Pages
-# 
-# 触发条件：推送到 main 分支的 docs/ 目录变更
-# 部署路径：GitHub Pages /docs/ 子路径
+# GitHub Actions — 统一部署 RTOS 官网生态到 GitHub Pages
+#
+# 构建内容：
+#   1. 门户网站（纯静态 HTML/CSS/JS）→ 根目录
+#   2. Docusaurus 文档站 → /docs/ 子目录
+#
+# 部署路径：https://zhanghang3252.github.io/rtosweb/
 # ================================================================
 
-name: Deploy Docusaurus Docs
+name: Deploy RTOS Website
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'docs/**'
-      - '.github/workflows/deploy-docs.yml'
   workflow_dispatch:  # 支持手动触发
 
 # 设置 GITHUB_TOKEN 权限
@@ -23,17 +23,13 @@ permissions:
 
 # 同一时间只允许一个部署任务
 concurrency:
-  group: "pages-docs"
-  cancel-in-progress: true
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   # ====== 构建阶段 ======
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        # 在 docs/ 子目录中执行命令
-        working-directory: ./docs
     steps:
       # 检出代码
       - name: Checkout
@@ -44,20 +40,37 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: './docs/package-lock.json'
 
-      # 安装依赖
-      - name: Install dependencies
+      # 构建 Docusaurus 文档站
+      - name: Install Docusaurus dependencies
         run: npm ci
+        working-directory: ./docs
 
-      # 构建 Docusaurus 站点
       - name: Build Docusaurus
         run: npm run build
-        env:
-          # 如果使用 Algolia 搜索，设置环境变量
-          # ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          # ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        working-directory: ./docs
+
+      # 合并门户网站和文档站到一个输出目录
+      - name: Merge site files
+        run: |
+          # 创建输出目录
+          mkdir -p _site
+          
+          # 复制门户网站文件到根目录
+          cp -r website/* _site/
+          
+          # 复制文档站到 /docs/ 子目录
+          cp -r docs/build _site/docs
+          
+          # 添加 .nojekyll 文件（防止 Jekyll 处理）
+          touch _site/.nojekyll
+          
+          # 列出最终输出
+          echo "=== 部署目录结构 ==="
+          ls -la _site/
+          echo ""
+          echo "=== 文档站 ==="
+          ls -la _site/docs/ | head -10
 
       # 配置 GitHub Pages
       - name: Setup Pages
@@ -67,7 +80,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './docs/build'
+          path: './_site'
 
   # ====== 部署阶段 ======
   deploy:
